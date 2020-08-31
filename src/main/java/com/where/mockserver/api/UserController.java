@@ -2,10 +2,8 @@ package com.where.mockserver.api;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
 @RestController// Spring Controller에 @ResponseBody(View를 거치지 않고 http의 body에 직접 반환)가 추가된 것
 /*
@@ -25,7 +23,12 @@ CORS : Cross-Origin resource Sharing
 @AllArgsConstructor : 모든 필드 값을 파라미터로 받는 생성자를 생성해준다.
 @RequiredArgsConstructor : final 또는 @NonNull 처리된 필드 값만을 파라미터로 받는 생성자를 생성해준다.
  */
-
+@RequestMapping("/api")
+/*
+@GetMapping은 메소드에만 적용됨, 클래스 레벨에는 적용 불가
+@GetMapping은 @RequestMapping(method = RequestMethod.GET)의 단축어라고 생각하면 된다.
+@RequestMapping을 하면서 GET 요청을 받는 작업을 간단하게 표기하기위해 @GetMapping 어노테이션이 등장한 것이다.
+ */
 public class UserController {
 
     @GetMapping("/user/{id}")
@@ -38,8 +41,9 @@ public class UserController {
             return ResponseEntity.ok("{'id : 3, 'name' : '이태강'}");
         } else if (id == 4) {
             return ResponseEntity.ok("{'id : 4, 'name' : '김보겸'}");
+        } else {
+            return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.notFound().build();
     }
 
 
