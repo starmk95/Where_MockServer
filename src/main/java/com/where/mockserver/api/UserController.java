@@ -1,5 +1,6 @@
 package com.where.mockserver.api;
 
+import com.where.mockserver.repository.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -28,23 +29,27 @@ CORS : Cross-Origin resource Sharing
 @GetMapping은 메소드에만 적용됨, 클래스 레벨에는 적용 불가
 @GetMapping은 @RequestMapping(method = RequestMethod.GET)의 단축어라고 생각하면 된다.
 @RequestMapping을 하면서 GET 요청을 받는 작업을 간단하게 표기하기위해 @GetMapping 어노테이션이 등장한 것이다.
+
  */
 public class UserController {
 
     @GetMapping("/user/{id}")
-    public ResponseEntity<String> queryId(@PathVariable("id") long id) {
+    public ResponseEntity<User> queryId(@PathVariable("id") long id) {
         if (id == 1) {
-            return ResponseEntity.ok("{'id : 1, 'name' : '김민규'}");
+            User user1 = new User("1", "김민규");
+            return ResponseEntity.ok(user1);
         } else if (id == 2) {
-            return ResponseEntity.ok("{'id : 2, 'name' : '김용재'}");
+            User user1 = new User("2", "김용재");
+            return ResponseEntity.ok(user1);
         } else if (id == 3) {
-            return ResponseEntity.ok("{'id : 3, 'name' : '이태강'}");
+            User user1 = new User("3", "이태강");
+            return ResponseEntity.ok(user1);
         } else if (id == 4) {
-            return ResponseEntity.ok("{'id : 4, 'name' : '김보겸'}");
+            User user1 = new User("4", "김보겸");
+            return ResponseEntity.ok(user1);
         } else {
             return ResponseEntity.notFound().build();
         }
     }
-
 
 }

@@ -37,9 +37,16 @@ dependencies {
 
     annotationProcessor('org.projectlombok:lombok:1.18.12')
 
-
     implementation('org.springframework.boot:spring-boot-starter-web:2.3.3.RELEASE')
     testCompile group: 'junit', name: 'junit', version: '4.12'
+    
+    implementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
+    implementation 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
+
+    implementation "org.springframework.boot:spring-boot-starter-web"
+    // 아래는 test에만 implemtation하는 방식으로 유닛테스트(@SpringBootTest와 같은 어노테이션) 추가
+    testImplementation "org.springframework.boot:spring-boot-starter-test"
+
 }
 bootJar.enabled(true)
 jar.enabled(true)

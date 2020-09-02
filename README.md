@@ -2,7 +2,7 @@
 
 ## 구현 api들
 
-- [ ] 사용자 정보 내려주는 api(User)
-- [ ] 그룹 정보 내려주는 api(Group)
-- [ ] 초대링크 내려주는 api(InviteLink)
+- [x] 사용자 정보 내려주는 api(User)
+- [x] 그룹 정보 내려주는 api(Group)
+- [x] 초대링크 내려주는 api(Group에 속함)
 - [ ] 
