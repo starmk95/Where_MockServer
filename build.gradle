@@ -48,6 +48,11 @@ dependencies {
     testImplementation "org.springframework.boot:spring-boot-starter-test"
 
 }
+
+bootJar {
+    archivesBaseName = 'Where_MockServer'
+}
+
 bootJar.enabled(true)
 jar.enabled(true)
 
